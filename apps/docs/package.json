@@ -1,7 +1,7 @@
 {
   "name": "@open-agent-platform/docs",
   "author": "LangChain",
-  "repository": "https://github.com/langchain-ai/open-agent-platform",
+  "repository": "https://github.com/ComplianceLedger/Agent-Platform",
   "private": true,
   "scripts": {
     "dev": "mint dev"

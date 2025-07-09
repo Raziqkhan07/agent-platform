@@ -17,7 +17,6 @@ import {
   AssistantMessageLoading,
 } from "@/features/chat/components/thread/messages/ai";
 import { HumanMessage } from "@/features/chat/components/thread/messages/human";
-import { LangGraphLogoSVG } from "@/components/icons/langgraph";
 import { TooltipIconButton } from "@/components/ui/tooltip-icon-button";
 import {
   ArrowDown,
@@ -421,12 +420,11 @@ export function Thread() {
             </>
           }
           footer={
-            <div className="sticky bottom-0 flex flex-col items-center gap-8 bg-white">
+            <div className="sticky bottom-0 flex flex-col items-center gap-8 bg-background">
               {!hasMessages && (
                 <div className="flex items-center gap-3">
-                  <LangGraphLogoSVG className="h-8 flex-shrink-0" />
                   <h1 className="text-2xl font-semibold tracking-tight">
-                    Open Agent Platform
+                    Agent Platform
                   </h1>
                 </div>
               )}

@@ -32,7 +32,7 @@ function EditableContent({
       value={value}
       onChange={(e) => setValue(e.target.value)}
       onKeyDown={handleKeyDown}
-      className="focus-visible:ring-0"
+      className="focus-visible:ring-0 bg-background text-foreground border-border"
     />
   );
 }
@@ -127,7 +127,7 @@ export function HumanMessage({
             )}
             {/* Render text if present, otherwise fallback to file/image name */}
             {contentString ? (
-              <p className="bg-muted ml-auto w-fit rounded-3xl px-4 py-2 text-right whitespace-pre-wrap">
+              <p className="bg-primary text-primary-foreground ml-auto w-fit rounded-3xl px-4 py-2 text-right whitespace-pre-wrap">
                 {contentString}
               </p>
             ) : null}

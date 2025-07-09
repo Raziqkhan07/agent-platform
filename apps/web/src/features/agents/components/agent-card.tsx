@@ -36,25 +36,27 @@ function SupportedConfigBadge({
       <Tooltip>
         <TooltipTrigger>
           {type === "rag" && (
-            <Badge variant="brand">
-              <Brain />
+            <Badge variant="brand" className="bg-primary/10 text-primary">
+              <Brain className="size-3.5" />
               RAG
             </Badge>
           )}
           {type === "tools" && (
-            <Badge variant="info">
-              <Wrench />
+            <Badge variant="info" className="bg-info/10 text-info">
+              <Wrench className="size-3.5" />
               MCP Tools
             </Badge>
           )}
           {type === "supervisor" && (
-            <Badge variant="brand">
-              <User />
+            <Badge variant="brand" className="bg-primary/10 text-primary">
+              <User className="size-3.5" />
               Supervisor
             </Badge>
           )}
         </TooltipTrigger>
-        <TooltipContent>This agent supports {type}.</TooltipContent>
+        <TooltipContent className="bg-popover text-popover-foreground border-border">
+          This agent supports {type}.
+        </TooltipContent>
       </Tooltip>
     </TooltipProvider>
   );
@@ -78,35 +80,35 @@ export function AgentCard({ agent, showDeployment }: AgentCardProps) {
     <>
       <Card
         key={agent.assistant_id}
-        className="overflow-hidden"
+        className="overflow-hidden bg-card text-card-foreground border-border"
       >
         <CardHeader className="space-y-2 pb-2">
           <div className="flex items-start justify-between">
-            <CardTitle className="flex w-full flex-wrap items-center gap-2">
+            <CardTitle className="flex w-full flex-wrap items-center gap-2 text-foreground">
               <p>{agent.name}</p>
               {showDeployment && selectedDeployment && (
                 <div className="flex flex-wrap items-center gap-1">
                   <TooltipProvider>
                     <Tooltip>
                       <TooltipTrigger>
-                        <Badge variant="outline">
-                          <Cloud />
+                        <Badge variant="outline" className="bg-background text-foreground border-border">
+                          <Cloud className="size-3.5" />
                           {selectedDeployment.name}
                         </Badge>
                       </TooltipTrigger>
-                      <TooltipContent>
+                      <TooltipContent className="bg-popover text-popover-foreground border-border">
                         The deployment the graph & agent belongs to.
                       </TooltipContent>
                     </Tooltip>
 
                     <Tooltip>
                       <TooltipTrigger>
-                        <Badge variant="outline">
-                          <Bot />
+                        <Badge variant="outline" className="bg-background text-foreground border-border">
+                          <Bot className="size-3.5" />
                           {agent.graph_id}
                         </Badge>
                       </TooltipTrigger>
-                      <TooltipContent>
+                      <TooltipContent className="bg-popover text-popover-foreground border-border">
                         The graph the agent belongs to.
                       </TooltipContent>
                     </Tooltip>
@@ -136,8 +138,9 @@ export function AgentCard({ agent, showDeployment }: AgentCardProps) {
               variant="outline"
               size="sm"
               onClick={() => setShowEditDialog(true)}
+              className="bg-background text-foreground border-border hover:bg-accent"
             >
-              <Edit className="mr-2 h-3.5 w-3.5" />
+              <Edit className="mr-2 size-3.5" />
               Edit
             </Button>
           )}
@@ -145,8 +148,8 @@ export function AgentCard({ agent, showDeployment }: AgentCardProps) {
             href={`/?agentId=${agent.assistant_id}&deploymentId=${agent.deploymentId}`}
             className="ml-auto"
           >
-            <Button size="sm">
-              <MessageSquare className="mr-2 h-3.5 w-3.5" />
+            <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90">
+              <MessageSquare className="mr-2 size-3.5" />
               Chat
             </Button>
           </NextLink>

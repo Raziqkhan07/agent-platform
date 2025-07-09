@@ -14,8 +14,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Open Agent Platform",
-  description: "Open Agent Platform by LangChain",
+  title: "Agent Platform",
+  description: "Agent Platform by FirmData",
 };
 
 export default function RootLayout({

@@ -1,0 +1,35 @@
+# cloudbuild.yaml
+steps:
+  # Step 1: Build the Docker image
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '--build-arg'
+      - 'NEXT_PUBLIC_BASE_API_URL=https://open-agent-platform-478375682645.us-central1.run.app/api'
+      - '--build-arg'
+      - 'LANGSMITH_API_KEY=lsv2_...' # <-- IMPORTANT: Put your real key here
+      - '--build-arg'
+      - 'NEXT_PUBLIC_USE_LANGSMITH_AUTH=false'
+      - '--build-arg'
+      - 'NEXT_PUBLIC_DEPLOYMENTS=[{"id":"bf63dc89-1de7-4a65-8336-af9ecda479d6","deploymentUrl":"https://oap-agent-supervisor-478375682645.us-central1.run.app","tenantId":"42d732b3-1324-4226-9fe9-513044dceb58","name":"Local deployment","isDefault":true,"defaultGraphId":"agent"}, {"id":"bf63dc89-1de7-4a65-8336-af9ecda479d7","deploymentUrl":"https://oap-agent-tools-478375682645.us-central1.run.app","tenantId":"42d732b3-1324-4226-9fe9-513044dceb59","name":"Local deployment 1"}]'
+      - '--build-arg'
+      - 'NEXT_PUBLIC_MCP_SERVER_URL=https://mcp-server-gsuggest-478375682645.us-central1.run.app/'
+      - '--build-arg'
+      - 'NEXT_PUBLIC_MCP_AUTH_REQUIRED=false'
+      - '--build-arg'
+      - 'NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5pbmlhdHR5bG5vaGR3Ym95Y2ZkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk2MzQyMTAsImV4cCI6MjA2NTIxMDIxMH0.4cwSpwxgDK1mkR_4oyePf-ZHZEpNd1brBpa4lIfUMio'
+      - '--build-arg'
+      - 'NEXT_PUBLIC_SUPABASE_URL=https://niniattylnohdwboycfd.supabase.co'
+      - '--build-arg'
+      - 'NEXT_PUBLIC_GOOGLE_AUTH_DISABLED=false'
+      # Tag the image with the Artifact Registry path
+      - '-t'
+      - 'gcr.io/jeldwen-demo/open-agent-platform'
+      # Point to the Dockerfile within the web app directory
+      - '--file=apps/web/Dockerfile'
+      # The build context is the root of the monorepo ('.') so the Dockerfile can access everything
+      - '.'
+
+# Step 2: Push the built image to Artifact Registry
+images:
+  - 'gcr.io/jeldwen-demo/open-agent-platform:latest'

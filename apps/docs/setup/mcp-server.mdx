@@ -37,7 +37,7 @@ To connect to an MCP server which does not require authentication, you should se
 
 ### Changing MCP Server URL
 
-If you change the MCP server URL, you'll need to update all of your agents to use the new URL. We've included a script in this repo to do just that. This script can be found in [`apps/web/scripts/update-agents-mcp-url.ts`](https://github.com/langchain-ai/open-agent-platform/blob/main/apps/web/scripts/update-agents-mcp-url.ts).
+If you change the MCP server URL, you'll need to update all of your agents to use the new URL. We've included a script in this repo to do just that. This script can be found in [`apps/web/scripts/update-agents-mcp-url.ts`](https://github.com/ComplianceLedger/Agent-Platform/blob/main/apps/web/scripts/update-agents-mcp-url.ts).
 
 To update your agent's MCP server URL, ensure the latest MCP server URL is set under the environment variable `NEXT_PUBLIC_MCP_SERVER_URL`, along with your deployments under `NEXT_PUBLIC_DEPLOYMENTS`, and a LangSmith API key under `LANGSMITH_API_KEY` (this is because the script uses LangSmith auth to authenticate with your LangGraph server, bypassing any user authentication). Then, run the script:
 

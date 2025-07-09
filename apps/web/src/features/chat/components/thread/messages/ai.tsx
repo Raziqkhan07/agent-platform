@@ -115,7 +115,7 @@ export function AssistantMessage({
       ) : (
         <div className="flex flex-col gap-2">
           {contentString.length > 0 && (
-            <div className="py-1">
+            <div className="py-1 text-foreground">
               <MarkdownText>{contentString}</MarkdownText>
             </div>
           )}
@@ -140,7 +140,7 @@ export function AssistantMessage({
           )}
           {/**
            * TODO: Support rendering interrupts.
-           * Tracking issue: https://github.com/langchain-ai/open-agent-platform/issues/22
+           * Tracking issue: https://github.com/ComplianceLedger/Agent-Platform/issues/22
            */}
           {/* {isAgentInboxInterruptSchema(threadInterrupt?.value) &&
             (isLastMessage || hasNoAIOrToolMessages) && (

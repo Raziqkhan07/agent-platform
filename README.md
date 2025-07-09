@@ -27,8 +27,8 @@ To quickly get started with Open Agent Platform, check out the [Quickstart Guide
 
 ## Community and Support
 
-- **GitHub Issues**: Report bugs or request features [here](https://github.com/langchain-ai/open-agent-platform/issues).
-- **Discussions**: Join the conversation on our [GitHub Discussions page](https://github.com/langchain-ai/open-agent-platform/discussions).
+- **GitHub Issues**: Report bugs or request features [here](https://github.com/ComplianceLedger/Agent-Platform/issues).
+- **Discussions**: Join the conversation on our [GitHub Discussions page](https://github.com/ComplianceLedger/Agent-Platform/discussions).
 
 We encourage you to explore the platform, build your own agents, and contribute to the Open Agent Platform community!
 

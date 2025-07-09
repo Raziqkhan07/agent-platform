@@ -73,10 +73,10 @@ function NameAndDescriptionAlertDialog({
       open={open}
       onOpenChange={setOpen}
     >
-      <AlertDialogContent>
+      <AlertDialogContent className="bg-background text-foreground border-border">
         <AlertDialogHeader>
           <AlertDialogTitle>Agent Name and Description</AlertDialogTitle>
-          <AlertDialogDescription>
+          <AlertDialogDescription className="text-muted-foreground">
             Please give your new agent a name and optional description.
           </AlertDialogDescription>
         </AlertDialogHeader>
@@ -89,6 +89,7 @@ function NameAndDescriptionAlertDialog({
               value={name}
               onChange={(e) => setName(e.target.value)}
               autoFocus
+              className="bg-background text-foreground border-border"
             />
           </div>
           <div className="flex flex-col gap-2">
@@ -98,11 +99,12 @@ function NameAndDescriptionAlertDialog({
               id="description"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
+              className="bg-background text-foreground border-border"
             />
           </div>
         </div>
         <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogCancel className="bg-background text-foreground border-border hover:bg-accent">Cancel</AlertDialogCancel>
           <AlertDialogAction onClick={handleSaveAgent}>
             Submit
           </AlertDialogAction>
@@ -234,8 +236,8 @@ export const ConfigurationSidebar = forwardRef<
     <div
       ref={ref}
       className={cn(
-        "fixed top-0 right-0 z-10 h-screen border-l border-gray-200 bg-white shadow-lg transition-all duration-300",
-        open ? "w-80 md:w-xl" : "w-0 overflow-hidden border-l-0",
+        "fixed top-0 right-0 z-10 h-screen w-full max-w-xl border-l border-border bg-background shadow-lg transition-all duration-300",
+        !open && "translate-x-full",
         className,
       )}
     >

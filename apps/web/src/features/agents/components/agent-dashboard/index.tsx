@@ -88,7 +88,7 @@ export function AgentDashboard() {
             <Search className="text-muted-foreground absolute top-2.5 left-2.5 h-4 w-4" />
             <Input
               placeholder="Search agents..."
-              className="pl-8"
+              className="pl-8 bg-background text-foreground border-border"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
@@ -98,22 +98,23 @@ export function AgentDashboard() {
         <div className="flex flex-wrap items-center gap-4">
           <div className="flex items-center gap-2">
             <Filter className="text-muted-foreground h-4 w-4" />
-            <span className="text-sm font-medium">Filters:</span>
+            <span className="text-sm font-medium text-foreground">Filters:</span>
           </div>
 
           <Select
             value={graphFilter}
             onValueChange={setGraphFilter}
           >
-            <SelectTrigger className="h-9 min-w-[180px]">
+            <SelectTrigger className="h-9 min-w-[180px] bg-background text-foreground border-border">
               <SelectValue placeholder="All Templates" />
             </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All Templates</SelectItem>
+            <SelectContent className="bg-popover text-popover-foreground border-border">
+              <SelectItem value="all" className="hover:bg-accent">All Templates</SelectItem>
               {allGraphGroups.map((graph) => (
                 <SelectItem
                   key={`${graph.deployment.id}:${graph.graphId}`}
-                  value={`${graph.deployment.id}:${graph.graphId}`} // Use combined ID for value
+                  value={`${graph.deployment.id}:${graph.graphId}`}
+                  className="hover:bg-accent"
                 >
                   <span className="text-muted-foreground">
                     [{graph.deployment.name}]
@@ -127,23 +128,23 @@ export function AgentDashboard() {
       </div>
 
       <div className="flex items-center justify-between">
-        <h2 className="text-lg font-medium">
+        <h2 className="text-lg font-medium text-foreground">
           {filteredAgents.length}{" "}
           {filteredAgents.length === 1 ? "Agent" : "Agents"}
         </h2>
       </div>
 
       {filteredAgents.length === 0 ? (
-        <div className="animate-in fade-in-50 flex flex-col items-center justify-center rounded-lg border border-dashed p-8 text-center">
+        <div className="animate-in fade-in-50 flex flex-col items-center justify-center rounded-lg border border-border bg-background p-8 text-center">
           <div className="bg-muted mx-auto flex h-20 w-20 items-center justify-center rounded-full">
             <Search className="text-muted-foreground h-10 w-10" />
           </div>
-          <h2 className="mt-6 text-xl font-semibold">No agents found</h2>
+          <h2 className="mt-6 text-xl font-semibold text-foreground">No agents found</h2>
           <p className="text-muted-foreground mt-2 mb-8 text-center">
             We couldn't find any agents matching your search criteria. Try
             adjusting your filters or create a new agent.
           </p>
-          <Button onClick={() => setShowCreateDialog(true)}>
+          <Button onClick={() => setShowCreateDialog(true)} className="bg-primary text-primary-foreground hover:bg-primary/90">
             Create Agent
           </Button>
         </div>
@@ -159,7 +160,6 @@ export function AgentDashboard() {
         </div>
       )}
 
-      {/* TODO: Replace with EditAgentDialog */}
       <CreateAgentDialog
         open={showCreateDialog}
         onOpenChange={setShowCreateDialog}

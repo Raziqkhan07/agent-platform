@@ -15,14 +15,17 @@ export function PageHeader({ title, description, action }: PageHeaderProps) {
   return (
     <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
       <div>
-        <h1 className="text-2xl font-bold tracking-tight">{title}</h1>
+        <h1 className="text-2xl font-bold tracking-tight text-foreground">{title}</h1>
         {description && (
           <p className="text-muted-foreground mt-1">{description}</p>
         )}
       </div>
       {action || (
-        <Button onClick={() => setShowCreateAgentDialog(true)}>
-          <PlusCircle className="mr-2 h-4 w-4" />
+        <Button 
+          onClick={() => setShowCreateAgentDialog(true)}
+          className="bg-primary text-primary-foreground hover:bg-primary/90"
+        >
+          <PlusCircle className="mr-2 size-4" />
           Create Agent
         </Button>
       )}

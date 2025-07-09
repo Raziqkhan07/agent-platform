@@ -29,6 +29,7 @@ import { useAuthContext } from "@/providers/Auth";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { useConfigStore } from "@/features/chat/hooks/use-config-store";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 export function NavUser() {
   const { isMobile } = useSidebar();
@@ -154,6 +155,14 @@ export function NavUser() {
               <Settings className="mr-2 h-4 w-4" />
               Settings
             </DropdownMenuItem>
+
+            <DropdownMenuSeparator />
+            
+            <div className="px-2 py-1.5">
+              <ThemeToggle />
+            </div>
+
+            <DropdownMenuSeparator />
 
             {isAuthenticated ? (
               <DropdownMenuItem

@@ -36,7 +36,7 @@ export function TemplateCard({
   return (
     <Card
       className={cn(
-        "overflow-hidden",
+        "overflow-hidden bg-card text-card-foreground border-border",
         isOpen ? "" : "hover:bg-accent/50 cursor-pointer transition-colors",
       )}
       onClick={() => {
@@ -56,7 +56,7 @@ export function TemplateCard({
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="mr-2 h-8 w-8 p-0"
+                  className="mr-2 h-8 w-8 p-0 text-foreground hover:bg-accent"
                   onClick={(e) => {
                     e.preventDefault();
                     e.stopPropagation();
@@ -64,21 +64,23 @@ export function TemplateCard({
                   }}
                 >
                   {isOpen ? (
-                    <ChevronDown className="h-4 w-4" />
+                    <ChevronDown className="size-4" />
                   ) : (
-                    <ChevronRight className="h-4 w-4" />
+                    <ChevronRight className="size-4" />
                   )}
                   <span className="sr-only">Toggle</span>
                 </Button>
               </CollapsibleTrigger>
-              <CardTitle className="flex items-center gap-2">
+              <CardTitle className="flex items-center gap-2 text-foreground">
                 <p className="text-2xl">{_.startCase(graphId)}</p>
                 <TooltipProvider>
                   <Tooltip>
                     <TooltipTrigger>
-                      <Badge variant="outline">{deployment.name}</Badge>
+                      <Badge variant="outline" className="bg-background text-foreground border-border">
+                        {deployment.name}
+                      </Badge>
                     </TooltipTrigger>
-                    <TooltipContent className="max-w-[350px]">
+                    <TooltipContent className="max-w-[350px] bg-popover text-popover-foreground border-border">
                       The deployment the graph belongs to. Deployments typically
                       contain a collection of similar, or related graphs.
                     </TooltipContent>
@@ -88,7 +90,7 @@ export function TemplateCard({
             </div>
           </div>
           <div className="flex items-center gap-2">
-            <Badge variant="outline">
+            <Badge variant="outline" className="bg-background text-foreground border-border">
               {agentsCount} Agent{agentsCount === 1 ? "" : "s"}
             </Badge>
           </div>

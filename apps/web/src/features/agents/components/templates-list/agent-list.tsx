@@ -36,7 +36,7 @@ export function AgentList({ agents, deploymentId }: AgentListProps) {
           <Search className="text-muted-foreground absolute top-2.5 left-2.5 h-4 w-4" />
           <Input
             placeholder="Search agents..."
-            className="pl-8"
+            className="pl-8 bg-background text-foreground border-border"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
@@ -44,25 +44,26 @@ export function AgentList({ agents, deploymentId }: AgentListProps) {
         <Button
           size="sm"
           onClick={() => setShowCreateDialog(true)}
+          className="bg-primary text-primary-foreground hover:bg-primary/90"
         >
-          <Plus className="mr-2 h-4 w-4" />
+          <Plus className="mr-2 size-4" />
           New Agent
         </Button>
       </div>
 
       {filteredAgents.length === 0 ? (
-        <div className="flex flex-col items-center justify-center rounded-lg border border-dashed p-6 text-center">
-          <h3 className="text-lg font-medium">No agents found</h3>
+        <div className="flex flex-col items-center justify-center rounded-lg border border-border bg-background p-6 text-center">
+          <h3 className="text-lg font-medium text-foreground">No agents found</h3>
           <p className="text-muted-foreground mt-1 text-sm">
             Create a new agent or try a different search.
           </p>
           <Button
             variant="outline"
             size="sm"
-            className="mt-4"
+            className="mt-4 bg-background text-foreground border-border hover:bg-accent"
             onClick={() => setShowCreateDialog(true)}
           >
-            <Plus className="mr-2 h-4 w-4" />
+            <Plus className="mr-2 size-4" />
             Create Agent
           </Button>
         </div>

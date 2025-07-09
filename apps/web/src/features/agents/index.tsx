@@ -16,16 +16,20 @@ export default function AgentsInterfaceV2() {
         defaultValue="templates"
         className="mt-6"
       >
-        <TabsList className="grid w-full max-w-md grid-cols-2">
-          <TabsTrigger value="templates">Templates</TabsTrigger>
-          <TabsTrigger value="all-agents">All Agents</TabsTrigger>
+        <TabsList className="grid w-full max-w-md grid-cols-2 bg-muted text-muted-foreground">
+          <TabsTrigger value="templates" className="data-[state=active]:bg-background data-[state=active]:text-foreground">
+            Templates
+          </TabsTrigger>
+          <TabsTrigger value="all-agents" className="data-[state=active]:bg-background data-[state=active]:text-foreground">
+            All Agents
+          </TabsTrigger>
         </TabsList>
 
         <TabsContent
           value="templates"
           className="mt-6"
         >
-          <Suspense fallback={<p>Loading...</p>}>
+          <Suspense fallback={<p className="text-muted-foreground">Loading...</p>}>
             <TemplatesList />
           </Suspense>
         </TabsContent>
@@ -34,7 +38,7 @@ export default function AgentsInterfaceV2() {
           value="all-agents"
           className="mt-6"
         >
-          <Suspense fallback={<p>Loading...</p>}>
+          <Suspense fallback={<p className="text-muted-foreground">Loading...</p>}>
             <AgentDashboard />
           </Suspense>
         </TabsContent>

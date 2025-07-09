@@ -76,7 +76,7 @@ export function TemplatesList() {
           <Search className="text-muted-foreground absolute top-1/2 left-2.5 h-4 w-4 -translate-y-1/2" />
           <Input
             placeholder="Search by graph or agent name..."
-            className="pl-8"
+            className="pl-8 bg-background text-foreground border-border"
             value={searchQueryState}
             onChange={(e) => setSearchQueryState(e.target.value)}
           />
@@ -84,11 +84,11 @@ export function TemplatesList() {
       </div>
 
       {filteredGraphGroupsState.length === 0 ? (
-        <div className="animate-in fade-in-50 flex flex-col items-center justify-center rounded-lg border border-dashed p-8 text-center">
+        <div className="animate-in fade-in-50 flex flex-col items-center justify-center rounded-lg border border-border bg-background p-8 text-center">
           <div className="bg-muted mx-auto flex h-20 w-20 items-center justify-center rounded-full">
             <Search className="text-muted-foreground h-10 w-10" />
           </div>
-          <h2 className="mt-6 text-xl font-semibold">No graphs found</h2>
+          <h2 className="mt-6 text-xl font-semibold text-foreground">No graphs found</h2>
           <p className="text-muted-foreground mt-2 mb-8 text-center">
             {searchQueryState
               ? "We couldn't find any graphs matching your search."

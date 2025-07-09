@@ -35,6 +35,7 @@ function ContentCopyable({
       variant="ghost"
       tooltip="Copy content"
       disabled={disabled}
+      className="text-foreground hover:text-foreground/80"
     >
       <AnimatePresence
         mode="wait"
@@ -48,7 +49,7 @@ function ContentCopyable({
             exit={{ opacity: 0, scale: 0.8 }}
             transition={{ duration: 0.15 }}
           >
-            <CopyCheck className="text-green-500" />
+            <CopyCheck className="text-primary" />
           </motion.div>
         ) : (
           <motion.div
@@ -85,7 +86,7 @@ export function BranchSwitcher({
       <Button
         variant="ghost"
         size="icon"
-        className="size-6 p-1"
+        className="size-6 p-1 text-foreground hover:text-foreground/80"
         onClick={() => {
           const prevBranch = branchOptions[index - 1];
           if (!prevBranch) return;
@@ -95,13 +96,13 @@ export function BranchSwitcher({
       >
         <ChevronLeft />
       </Button>
-      <span className="text-sm">
+      <span className="text-sm text-foreground">
         {index + 1} / {branchOptions.length}
       </span>
       <Button
         variant="ghost"
         size="icon"
-        className="size-6 p-1"
+        className="size-6 p-1 text-foreground hover:text-foreground/80"
         onClick={() => {
           const nextBranch = branchOptions[index + 1];
           if (!nextBranch) return;
@@ -173,6 +174,7 @@ export function CommandBar({
           onClick={() => {
             setIsEditing(false);
           }}
+          className="text-foreground hover:text-foreground/80"
         >
           <XIcon />
         </TooltipIconButton>
@@ -181,6 +183,7 @@ export function CommandBar({
           tooltip="Submit"
           variant="secondary"
           onClick={handleSubmitEdit}
+          className="text-secondary-foreground"
         >
           <SendHorizontal />
         </TooltipIconButton>
@@ -200,6 +203,7 @@ export function CommandBar({
           tooltip="Refresh"
           variant="ghost"
           onClick={handleRegenerate}
+          className="text-foreground hover:text-foreground/80"
         >
           <RefreshCcw />
         </TooltipIconButton>
@@ -210,8 +214,11 @@ export function CommandBar({
           tooltip="Edit"
           variant="ghost"
           onClick={() => {
-            setIsEditing?.(true);
+            if (setIsEditing) {
+              setIsEditing(true);
+            }
           }}
+          className="text-foreground hover:text-foreground/80"
         >
           <Pencil />
         </TooltipIconButton>

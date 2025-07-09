@@ -149,7 +149,7 @@ export function ConfigField({
       <div className="flex items-center justify-between">
         <Label
           htmlFor={id}
-          className="text-sm font-medium"
+          className="text-sm font-medium text-foreground"
         >
           {_.startCase(label)}
         </Label>
@@ -163,7 +163,7 @@ export function ConfigField({
       </div>
 
       {description && (
-        <p className="text-xs whitespace-pre-line text-gray-500">
+        <p className="text-xs whitespace-pre-line text-muted-foreground">
           {description}
         </p>
       )}
@@ -174,6 +174,7 @@ export function ConfigField({
           value={currentValue || ""} // Use currentValue
           onChange={(e) => handleChange(e.target.value)}
           placeholder={placeholder}
+          className="bg-background text-foreground border-border"
         />
       )}
 
@@ -183,7 +184,7 @@ export function ConfigField({
           value={currentValue || ""} // Use currentValue
           onChange={(e) => handleChange(e.target.value)}
           placeholder={placeholder}
-          className="min-h-[100px]"
+          className="min-h-[100px] bg-background text-foreground border-border"
         />
       )}
 
@@ -209,6 +210,7 @@ export function ConfigField({
           min={min}
           max={max}
           step={step}
+          className="bg-background text-foreground border-border"
         />
       )}
 
@@ -250,11 +252,11 @@ export function ConfigField({
           value={currentValue ?? ""} // Use currentValue, provide default empty string if undefined/null
           onValueChange={handleChange}
         >
-          <SelectTrigger>
+          <SelectTrigger className="bg-background text-foreground border-border">
             {/* Display selected value or placeholder */}
             <SelectValue placeholder={placeholder || "Select an option"} />
           </SelectTrigger>
-          <SelectContent>
+          <SelectContent className="bg-background text-foreground border-border">
             {/* Add a placeholder/default option if needed */}
             {placeholder && (
               <SelectItem
@@ -268,6 +270,7 @@ export function ConfigField({
               <SelectItem
                 key={option.value}
                 value={option.value}
+                className="hover:bg-accent"
               >
                 {option.label}
               </SelectItem>

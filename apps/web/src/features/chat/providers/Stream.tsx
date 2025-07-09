@@ -148,13 +148,12 @@ export const StreamProvider: React.FC<{ children: ReactNode }> = ({
         <div className="animate-in fade-in-0 zoom-in-95 bg-background flex min-h-64 max-w-3xl flex-col rounded-lg border shadow-lg">
           <div className="mt-14 flex flex-col gap-2 p-6">
             <div className="flex flex-col items-start gap-2">
-              <LangGraphLogoSVG className="h-7" />
               <h1 className="text-xl font-semibold tracking-tight">
-                Open Agent Platform
+                Agent Platform
               </h1>
             </div>
             <p className="text-muted-foreground">
-              Welcome to Open Agent Platform's chat! To continue, please select
+              Welcome to Agent Platform's chat! To continue, please select
               an agent to chat with.
             </p>
           </div>
