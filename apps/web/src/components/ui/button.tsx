@@ -30,6 +30,8 @@ const buttonVariants = cva(
           "bg-info text-info-foreground hover:bg-info/90 shadow-elevation-1 dark:shadow-elevation-2",
         success:
           "bg-success text-success-foreground hover:bg-success/90 shadow-elevation-1 dark:shadow-elevation-2",
+        brand:
+          "bg-primary text-primary-foreground hover:bg-primary/90 shadow-elevation-1 dark:shadow-elevation-2",
       },
       size: {
         default: "h-10 px-4 py-2",
